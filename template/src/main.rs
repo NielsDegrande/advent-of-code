@@ -6,8 +6,8 @@
 use std::fs;
 use std::path::Path;
 
-// Choose the mode: Real or Test.
-const CHOSEN_MODE: MODE = MODE::Real;
+// Choose the mode: Test or Real.
+const CHOSEN_MODE: MODE = MODE::Test;
 #[allow(dead_code)]
 enum MODE {
     Test,
