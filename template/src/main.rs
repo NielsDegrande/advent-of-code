@@ -16,9 +16,7 @@ enum MODE {
 
 fn read_file(file_path_as_str: &str) -> String {
     let file_path: &Path = Path::new(file_path_as_str);
-    let contents: String =
-        fs::read_to_string(file_path).expect("Should have been able to read the file.");
-    contents
+    fs::read_to_string(file_path).expect("Should have been able to read the file.")
 }
 
 fn solve_part_1(contents: &String) -> u32 {
