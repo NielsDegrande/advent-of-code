@@ -26,7 +26,7 @@ fn solve_part_1(contents: &String) -> u32 {
     // Parse line by line.
     for line in contents.lines() {
         println!("{}", line);
-        solution += 1
+        solution += 1;
     }
     solution
 }
@@ -38,7 +38,7 @@ fn solve_part_2(contents: &String) -> u32 {
     // Parse line by line.
     for line in contents.lines() {
         println!("{}", line);
-        solution += 1
+        solution += 1;
     }
     solution
 }
