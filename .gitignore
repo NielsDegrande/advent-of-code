@@ -16,8 +16,7 @@ Cargo.lock
 # Python.
 __pycache__
 venv
-# 2022 AoC is Rust!
-2022/*/*.py
+_main.py
 
 # VSCode.
 .vscode
