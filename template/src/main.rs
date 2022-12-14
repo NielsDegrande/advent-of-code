@@ -3,9 +3,6 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-use std::fs;
-use std::path::Path;
-
 // Choose the mode: Test or Real.
 const CHOSEN_MODE: MODE = MODE::Test;
 #[allow(dead_code)]
@@ -14,29 +11,24 @@ enum MODE {
     Real,
 }
 
-fn read_file(file_path_as_str: &str) -> String {
-    let file_path: &Path = Path::new(file_path_as_str);
-    fs::read_to_string(file_path).expect("Should have been able to read the file.")
-}
-
-fn solve_part_1(contents: &String) -> u32 {
-    // Keep track of solution.
+fn solve_part_1(input: &str) -> u32 {
+    // Keep track of the solution.
     let mut solution = 0;
 
     // Parse line by line.
-    for line in contents.lines() {
+    for line in input.lines() {
         println!("{}", line);
         solution += 1;
     }
     solution
 }
 
-fn solve_part_2(contents: &String) -> u32 {
-    // Keep track of solution.
+fn solve_part_2(input: &str) -> u32 {
+    // Keep track of the solution.
     let mut solution = 0;
 
     // Parse line by line.
-    for line in contents.lines() {
+    for line in input.lines() {
         println!("{}", line);
         solution += 1;
     }
@@ -45,23 +37,23 @@ fn solve_part_2(contents: &String) -> u32 {
 
 fn main() {
     // Initialize problem.
-    let contents: String;
+    let input: &str;
     match CHOSEN_MODE {
         MODE::Test => {
             // Read test file.
-            contents = read_file("data/test.txt");
+            input = include_str!("../data/test.txt");
         }
         MODE::Real => {
             // Read input file.
-            contents = read_file("data/input.txt");
+            input = include_str!("../data/input.txt");
         }
     }
 
     // Part 1.
-    let part_1_score = solve_part_1(&contents);
+    let part_1_score = solve_part_1(input);
     println!("Part 1 - Solution: {}", part_1_score);
 
     // Part 2.
-    let part_2_score = solve_part_2(&contents);
+    let part_2_score = solve_part_2(input);
     println!("Part 2 - Solution: {}", part_2_score);
 }
