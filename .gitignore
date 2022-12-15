@@ -16,7 +16,9 @@ Cargo.lock
 # Python.
 __pycache__
 venv
-_main.py
 
 # VSCode.
 .vscode
+
+# Scratch files.
+_*

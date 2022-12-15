@@ -79,6 +79,7 @@ fn normalize_point(point: &Point, min_x: &i32, min_y: &i32) -> (usize, usize) {
 }
 
 fn create_grid(
+    start_point: &Point,
     min_x: &i32,
     max_x: &i32,
     min_y: &i32,
@@ -96,8 +97,7 @@ fn create_grid(
     }
 
     // Add source.
-    let (normalized_source_x, normalized_source_y) =
-        normalize_point(&Point { x: 500, y: 0 }, min_x, min_y);
+    let (normalized_source_x, normalized_source_y) = normalize_point(start_point, min_x, min_y);
     grid[normalized_source_y][normalized_source_x] = '+';
 
     // Add rocks to the grid.
@@ -247,7 +247,7 @@ fn main() {
     // Initialize and visualize grid.
     let start_point = Point { x: 500, y: 0 };
     let (min_x, max_x, min_y, max_y) = find_grid_dimensions(&data, &start_point);
-    let grid: Vec<Vec<char>> = create_grid(&min_x, &max_x, &min_y, &max_y, &data);
+    let grid: Vec<Vec<char>> = create_grid(&start_point, &min_x, &max_x, &min_y, &max_y, &data);
 
     // Part 1.
     let part_1_score = solve(&mut grid.clone(), &start_point, &min_x, &min_y, 1);
@@ -261,6 +261,7 @@ fn main() {
     let lowered_floor = max_y + 2;
 
     let mut grid: Vec<Vec<char>> = create_grid(
+        &start_point,
         &enlarged_min_x,
         &enlarged_max_x,
         &min_y,
