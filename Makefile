@@ -1,12 +1,15 @@
 # No (file) targets are assumed for most Makefile commands.
-.PHONY:
-	init_day
 
-help: ## Print help.
+
+## help: Print help.
+.PHONY: help
+help:
 	@echo Possible commands:
 	@cat Makefile | grep '##' | grep -v "Makefile" | sed -e 's/^/  - /'
 
-init_day: ## Initialize a new AoC day.
+## initialize_day: Initialize a new AoC day.
+.PHONY: init_day
+initialize_day:
 	@mkdir -p "$(YEAR)"
 	@cargo new "$(YEAR)"/day"$(DAY)" -q
 	@cp -r template/data "$(YEAR)"/day"$(DAY)"/

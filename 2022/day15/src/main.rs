@@ -136,7 +136,7 @@ fn solve_part_2(data: &Vec<(Point, Point)>, solution_space_size: i64) -> u64 {
         }
     }
 
-    // Return 0 if not solution can be found.
+    // Return 0 if no solution can be found.
     0
 }
 
