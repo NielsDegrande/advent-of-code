@@ -32,30 +32,26 @@ fn replace_numbers(line: &str) -> String {
 }
 
 fn solve_part_1(input: &str) -> u32 {
-    // Keep track of the solution.
-    let mut solution = 0;
-
-    // Parse line by line.
-    for line in input.lines() {
-        let left_digit = find_number(line).unwrap().1 * RADIX;
-        let right_digit = find_number(&reverse_string(line)).unwrap().1;
-        solution += left_digit + right_digit;
-    }
-    solution
+    input
+        .lines()
+        .filter_map(|line| {
+            let left_digit = find_number(line)?.1 * RADIX;
+            let right_digit = find_number(&reverse_string(line))?.1;
+            Some(left_digit + right_digit)
+        })
+        .sum()
 }
 
 fn solve_part_2(input: &str) -> u32 {
-    // Keep track of the solution.
-    let mut solution = 0;
-
-    // Parse line by line.
-    for line in input.lines() {
-        let replaced_line = replace_numbers(line);
-        let left_digit = find_number(&replaced_line).unwrap().1 * RADIX;
-        let right_digit = find_number(&reverse_string(&replaced_line)).unwrap().1;
-        solution += left_digit + right_digit;
-    }
-    solution
+    input
+        .lines()
+        .filter_map(|line| {
+            let replaced_line = replace_numbers(line);
+            let left_digit = find_number(&replaced_line)?.1 * RADIX;
+            let right_digit = find_number(&reverse_string(&replaced_line))?.1;
+            Some(left_digit + right_digit)
+        })
+        .sum()
 }
 
 fn main() {
