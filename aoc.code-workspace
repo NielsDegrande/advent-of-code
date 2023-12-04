@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "day04",
+			"path": "./2023/day04"
+		},
+		{
+			"name": "advent-of-code",
+			"path": "."
+		}
+	],
+	"settings": {},
+}
