@@ -17,4 +17,6 @@ initialize_day:
 	@cp -r template/.vscode "$(YEAR)"/day"$(DAY)"/.vscode
 	@sed -i.bak 's/dayXX/day$(DAY)/g' "$(YEAR)"/day"$(DAY)"/.vscode/launch.json
 	@rm "$(YEAR)"/day"$(DAY)"/.vscode/launch.json.bak
+	@sed -i.bak 's/day../day$(DAY)/g' aoc.code-workspace
+	@rm aoc.code-workspace.bak
 	@echo "$(YEAR)"/day"$(DAY)" initialized!
