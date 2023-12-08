@@ -15,3 +15,24 @@ fn solve_quadratic(a: f32, b: f32, c: f32) -> Option<(f32, f32)> {
 fn is_integer(n: f32) -> bool {
     n.fract() == 0.0
 }
+
+fn gcd(a: u64, b: u64) -> u64 {
+    if b == 0 {
+        a
+    } else {
+        gcd(b, a % b)
+    }
+}
+
+fn lcm(a: u64, b: u64) -> u64 {
+    // a * b / gcd(a, b), divide first to avoid overflow.
+    a / gcd(a, b) * b
+}
+
+fn lcm_of_vec(numbers: &Vec<u64>) -> u64 {
+    numbers
+        .iter()
+        .copied()
+        .reduce(|a, b| lcm(a, b))
+        .unwrap_or(1)
+}
