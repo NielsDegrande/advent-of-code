@@ -8,7 +8,7 @@ help:
 	@cat Makefile | grep '##' | grep -v "Makefile" | sed -e 's/^/  - /'
 
 ## initialize_day: Initialize a new AoC day.
-.PHONY: init_day
+.PHONY: initialize_day
 initialize_day:
 	@mkdir -p "$(YEAR)"
 	@cargo new "$(YEAR)"/day"$(DAY)" -q
